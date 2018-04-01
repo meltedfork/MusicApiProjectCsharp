@@ -1,0 +1,29 @@
+<a href="/dashboard">Back to dashboard</a>
+<br>
+<br>
+<a href="logout">Logout</a>
+
+
+
+<h2>@ViewBag.Playlist.PName</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Track Title</th>
+            <th>Artist</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var thing in ViewBag.Playlist.Musics)
+        {
+            <tr>
+            <td>@thing.Song</td>
+            <td>@thing.Artist</td>
+            <td><a href="/delete/@thing.MusicId">Delete</a> or <a href="#">Add to another playlist</a></td>            
+            </tr>
+        }
+             
+    </tbody>
+</table>

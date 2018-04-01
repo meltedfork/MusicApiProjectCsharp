@@ -1,0 +1,29 @@
+<h1>Track Results:</h1>
+
+<a href="/dashboard">Return to main dashboard</a>
+
+
+<form>
+    <select>
+        <option value="null">Select a PlayList to modify</option>
+@foreach (var name in ViewBag.Playlists)
+{
+        <option>@name.PName</option>
+}
+    </select>
+</form>
+
+
+  <div class="container">
+      <div class="row">
+          @foreach(var song in ViewBag.Results.results.trackmatches.track)
+          {
+          <div id="@song.mbid">
+              <h6>Track Name: @song.name</h6>
+              <h6>By: @song.artist</h6>
+        <a href='@Url.Action("AddTrack", "Streamify", new { song = @song.name, artist = @song.artist })'> Add @song.name</a>
+         <h6>_____________________</h6>
+          </div>
+      }
+        </div>
+  </div>
